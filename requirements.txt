@@ -1,0 +1,5 @@
+newspaper3k
+nltk
+sentencepiece
+protobuf
+openai==0.28
