@@ -2,7 +2,7 @@ import os
 import sys
 import newspaper
 from tqdm import tqdm
-from utils import util, config, FileProcess, Timer, AbstractGenerater, ChatGPT_API
+from utils import util, config, FileProcess, Timer, AbstractGenerater, ChatGPTAPI
 
 
 def main():
@@ -14,7 +14,7 @@ def main():
     logger = file_process.logger
     timer = Timer(logger)
     abs_gen = AbstractGenerater(logger, config.abs_gen_model_name)
-    chatgpt_api = ChatGPT_API(logger, openai_api_key=config.openai_api_key)
+    chatgpt_api = ChatGPTAPI(logger, openai_api_key=config.openai_api_key)
 
     for website_name, website_url in config.website_names_urls.items():
         paper = newspaper.build(website_url, language='zh')

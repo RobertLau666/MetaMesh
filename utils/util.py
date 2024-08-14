@@ -114,7 +114,7 @@ class AbstractGenerater():
         self.logger.info(f"summary: {summary}")
         return summary
 
-class ChatGPT_API():
+class ChatGPTAPI():
     def __init__(self, logger, openai_api_key):
         self.logger = logger
         openai.api_key = openai_api_key # OpenAI API Key获取: OpenAI Platform 

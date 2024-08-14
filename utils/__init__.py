@@ -1,1 +1,1 @@
-from .util import FileProcess, Timer, AbstractGenerater, ChatGPT_API
+from .util import FileProcess, Timer, AbstractGenerater, ChatGPTAPI
