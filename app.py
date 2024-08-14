@@ -2,11 +2,15 @@ import os
 import sys
 import newspaper
 from tqdm import tqdm
-from utils import config, File_Process, Timer, AbstractGenerater, ChatGPT_API
+from utils import util, config, FileProcess, Timer, AbstractGenerater, ChatGPT_API
 
 
 def main():
-    file_process = File_Process('launch')
+    util.create_dir_or_file(config.files_dir)
+    util.create_dir_or_file(config.log_dir)
+    util.create_dir_or_file(config.json_dir)
+    
+    file_process = FileProcess('launch')
     logger = file_process.logger
     timer = Timer(logger)
     abs_gen = AbstractGenerater(logger, config.abs_gen_model_name)
@@ -22,6 +26,7 @@ def main():
             article.download()
             article.parse()
         else:
+            pass
 
         article_json = {}
         articles = paper.articles
@@ -56,7 +61,7 @@ def main():
                 break
             
         # save json
-        file_process.save_json(article_json, f'files/json/{website_name}.json')
+        file_process.save_json(article_json, os.path.join(config.json_dir, f'{website_name}.json'))
         
 
 if __name__ == "__main__":

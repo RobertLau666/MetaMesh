@@ -4,7 +4,9 @@ import json
 CONFIG_DIR = os.path.abspath(os.path.dirname(__file__))
 PROOT_DIR = os.path.dirname(CONFIG_DIR)
 
-logging_dir = os.path.join(PROOT_DIR, 'files/log')
+files_dir = os.path.join(PROOT_DIR, 'files')
+log_dir = os.path.join(PROOT_DIR, files_dir, 'log')
+json_dir = os.path.join(PROOT_DIR, files_dir, 'json')
 time_format = "%Y-%m-%d %H:%M:%S"
 
 # website

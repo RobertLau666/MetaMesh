@@ -11,7 +11,18 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 import openai
 
 
-class File_Process():
+def create_dir_or_file(path):
+    if not os.path.exists(path):
+        file_name, file_extension = os.path.splitext(path)
+        print("file_name, file_extension",file_name, file_extension)
+        if file_extension == "":
+            os.makedirs(path, exist_ok=True)
+        else:
+            if not os.path.exists(path):
+                with open(path, 'w') as file:
+                    file.write('{}') # it is json format here in this project
+
+class FileProcess():
     def __init__(self, log_name):
         self.logger = self.get_logger(log_name)
 
@@ -23,7 +34,7 @@ class File_Process():
             handlers=[
                 logging.StreamHandler(sys.stdout),
                 logging.FileHandler(
-                    os.path.join(config.logging_dir, f"{log_name}.log")
+                    os.path.join(config.log_dir, f"{log_name}.log")
                 ),
             ]
         )
@@ -34,6 +45,24 @@ class File_Process():
     def save_json(self, json_content, json_file_path):
         with open(json_file_path, 'w', encoding='utf-8') as file:
             file.write(json.dumps(json_content, indent=4, ensure_ascii=False))
+
+    def get_current_time(self):
+        current_time = datetime.now()
+        date_suffix = current_time.strftime("_%Y%m%d")
+        time_suffix = current_time.strftime("_%H%M%S")
+
+        return '_time' + date_suffix + time_suffix
+
+    # def create_dir_or_file(self, path):
+    #     if not os.path.exists(path):
+    #         file_name, file_extension = os.path.splitext(path)
+    #         print("file_name, file_extension",file_name, file_extension)
+    #         if file_extension == "":
+    #             os.makedirs(path, exist_ok=True)
+    #         else:
+    #             if not os.path.exists(path):
+    #                 with open(path, 'w') as file:
+    #                     file.write('{}') # it is json format here in this project
 
 
 class Timer():

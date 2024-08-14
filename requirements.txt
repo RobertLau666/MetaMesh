@@ -3,3 +3,4 @@ nltk
 sentencepiece
 protobuf
 openai==0.28
+lxml_html_clean
