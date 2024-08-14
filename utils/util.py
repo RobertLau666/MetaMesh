@@ -53,17 +53,6 @@ class FileProcess():
 
         return '_time' + date_suffix + time_suffix
 
-    # def create_dir_or_file(self, path):
-    #     if not os.path.exists(path):
-    #         file_name, file_extension = os.path.splitext(path)
-    #         print("file_name, file_extension",file_name, file_extension)
-    #         if file_extension == "":
-    #             os.makedirs(path, exist_ok=True)
-    #         else:
-    #             if not os.path.exists(path):
-    #                 with open(path, 'w') as file:
-    #                     file.write('{}') # it is json format here in this project
-
 
 class Timer():
     def __init__(self, logger):

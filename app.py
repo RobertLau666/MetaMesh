@@ -59,8 +59,7 @@ def main():
                 get_articles_record_number += 1
             if get_articles_record_number == config.MAX_ARTICLES_NUM_EVERY_WEBSITE_I_WANT_GET:
                 break
-            
-        # save json
+        
         file_process.save_json(article_json, os.path.join(config.json_dir, f'{website_name}.json'))
         
 
