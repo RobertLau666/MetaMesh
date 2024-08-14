@@ -28,6 +28,7 @@ PULL_AGAIN_INTERVAL_TIME_H = 8
 
 # chatgpt
 use_chatgpt = False
+openai_api_key = os.getenv('OPENAI_API_KEY')
 prefix_request_prompt = """
 Please help me analyze the above sentence, and answer the following questions please:
 1. Sum up some of this text for me in 100 words or less.
