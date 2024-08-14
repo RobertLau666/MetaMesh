@@ -21,16 +21,9 @@ def main():
         categorys = paper.category_urls()
         logger.info(f"categorys nums: {len(categorys)} \ncategorys: {categorys}")
 
-        if len(categorys) == 1: # 被看作本身就是一篇文章，分析这个链接
-            article = Article(article_url, language='zh')
-            article.download()
-            article.parse()
-        else:
-            pass
-
         article_json = {}
         articles = paper.articles
-        logger.info(f"articles nums: {len(articles)} \articles: {articles}")
+        logger.info(f"articles nums: {len(articles)} \narticles: {articles}")
         
         get_articles_record_number = 0
         for i, article in enumerate(tqdm(articles)):
