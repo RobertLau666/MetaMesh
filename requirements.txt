@@ -4,3 +4,7 @@ sentencepiece
 protobuf
 openai==0.28
 lxml_html_clean
+torch==2.8.0
+torchvision==0.23.0
+torchaudio==2.8.0
+transformers==4.55.3
