@@ -4,6 +4,8 @@ MetaMesh is a project that collects and categorizes online news information for 
 ```
 git clone https://github.com/RobertLau666/MetaMesh.git
 cd MetaMesh
+conda create -n metamesh python=3.10
+conda activate metamesh
 pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 ## Prepare
